@@ -1,0 +1,68 @@
+%%%%%%%%%%%Quartics
+
+if(polyorder>=3)
+    for m=1:nVars
+                yout(:,ind) = ((yin2(:,m)).*((yin2(:,m))).*(yin2(:,m)) .*(yin2(:,m))) /75434573970;%(316320669.2);
+                ind = ind+1;
+    end
+end
+if(polyorder>=3)
+    for m=1:nVars
+                yout(:,ind) = ((yin2(:,m)).*((yin2(:,m))).*(yin2(:,m)) .*(yin3(:,m))) /75434573970;%(316320669.2);
+                ind = ind+1;
+    end
+end
+if(polyorder>=3)
+    for m=1:nVars
+                yout(:,ind) = ((yin2(:,m)).*((yin2(:,m))).*(yin3(:,m)) .*(yin3(:,m))) /75434573970;%(316320669.2);
+                ind = ind+1;
+    end
+end
+if(polyorder>=3)
+    for m=1:nVars
+                yout(:,ind) = ((yin2(:,m)).*((yin3(:,m))).*(yin3(:,m)) .*(yin3(:,m))) /75434573970;%(316320669.2);
+                ind = ind+1;
+    end
+end
+if(polyorder>=3)
+    for m=1:nVars
+                yout(:,ind) = ((yin3(:,m)).*((yin3(:,m))).*(yin3(:,m)) .*(yin3(:,m))) /75434573970;%(316320669.2);
+                ind = ind+1;
+    end
+end
+
+
+%%%%%%%%%%%Quartics
+if normFactor>0
+    
+if(polyorder>=3)
+    for m=1:nVars
+                yout(:,ind) = ((yin2(:,m)).*((yin2(:,m))).*(yin2(:,m)) .*(yin2(:,m))) /75434573970/((abs(yin2(:,m)+1i*yin3(:,m)).^normFactor+1));%(316320669.2);
+                ind = ind+1;
+    end
+end
+if(polyorder>=3)
+    for m=1:nVars
+                yout(:,ind) = ((yin2(:,m)).*((yin2(:,m))).*(yin2(:,m)) .*(yin3(:,m))) /75434573970/((abs(yin2(:,m)+1i*yin3(:,m)).^normFactor+1));;%(316320669.2);
+                ind = ind+1;
+    end
+end
+if(polyorder>=3)
+    for m=1:nVars
+                yout(:,ind) = ((yin2(:,m)).*((yin2(:,m))).*(yin3(:,m)) .*(yin3(:,m))) /75434573970/((abs(yin2(:,m)+1i*yin3(:,m)).^normFactor+1));;%(316320669.2);
+                ind = ind+1;
+    end
+end
+if(polyorder>=3)
+    for m=1:nVars
+                yout(:,ind) = ((yin2(:,m)).*((yin3(:,m))).*(yin3(:,m)) .*(yin3(:,m))) /75434573970;%(316320669.2);
+                ind = ind+1;
+    end
+end
+if(polyorder>=3)
+    for m=1:nVars
+                yout(:,ind) = ((yin3(:,m)).*((yin3(:,m))).*(yin3(:,m)) .*(yin3(:,m))) /75434573970;%(316320669.2);
+                ind = ind+1;
+    end
+end
+end

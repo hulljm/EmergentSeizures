@@ -1,0 +1,351 @@
+%mixed products for 111,2
+
+%RRRR
+if(polyorder>=2)
+    % poly order 2
+    for i=1:nVars
+       % for j=1:nVars
+            str1='quadI*I ';
+            str2=num2str(i);
+            str3=' , ';
+            str4=num2str(i);
+            strOutName=append(str1,str2,str3,str4);
+            yout{ind,1} = [strOutName];
+            
+            if i >8
+                realOther=(i-8)*2-1;
+                imagOther=(i-8)*2;
+                
+                realSelf=(i-4)*2-1;
+                imagSelf=(i-4)*2; 
+            end
+            if i <5
+                realOther=(i)*2-1;
+                imagOther=(i)*2;
+                
+                realSelf=(i+4)*2-1;
+                imagSelf=(i+4)*2; 
+                
+            end
+
+           if i >4 && i<9
+                realOther=(i-4)*2-1;
+                imagOther=(i-4)*2;
+                
+                realSelf=(i)*2-1;
+                imagSelf=(i)*2;     
+            end
+
+            
+            str1 = sprintf('1./(1*abs(y(%d)+1i*y(%d)).^(%d)+1).*y(%d).*y(%d).*y(%d).*y(%d)/1976.0045 ',realOther,imagOther,normFactor,realOther,realOther,realOther,realSelf);
+            strOut=append(str1);
+            youtBuilder{ind,1}=[strOut];
+            ind = ind+1;
+    end
+end
+
+%RRRI
+if(polyorder>=2)
+    % poly order 2
+    for i=1:nVars
+       % for j=1:nVars
+            str1='quadI*I ';
+            str2=num2str(i);
+            str3=' , ';
+            str4=num2str(i);
+            strOutName=append(str1,str2,str3,str4);
+            yout{ind,1} = [strOutName];
+            
+            if i >8
+                realOther=(i-8)*2-1;
+                imagOther=(i-8)*2;
+                
+                realSelf=(i-4)*2-1;
+                imagSelf=(i-4)*2; 
+            end
+            if i <5
+                realOther=(i)*2-1;
+                imagOther=(i)*2;
+                
+                realSelf=(i+4)*2-1;
+                imagSelf=(i+4)*2; 
+                
+            end
+
+           if i >4 && i<9
+                realOther=(i-4)*2-1;
+                imagOther=(i-4)*2;
+                
+                realSelf=(i)*2-1;
+                imagSelf=(i)*2;     
+            end
+            
+            str1 = sprintf('1./(1*abs(y(%d)+1i*y(%d)).^(%d)+1).*y(%d).*y(%d).*y(%d).*y(%d)/1976.0045 ',realOther,imagOther,normFactor,realOther,realOther,realOther,imagSelf);
+            strOut=append(str1);
+            youtBuilder{ind,1}=[strOut];
+            ind = ind+1;
+    end
+end
+
+%RRIR
+if(polyorder>=2)
+    % poly order 2
+    for i=1:nVars
+       % for j=1:nVars
+            str1='quadI*I ';
+            str2=num2str(i);
+            str3=' , ';
+            str4=num2str(i);
+            strOutName=append(str1,str2,str3,str4);
+            yout{ind,1} = [strOutName];
+            
+            if i >8
+                realOther=(i-8)*2-1;
+                imagOther=(i-8)*2;
+                
+                realSelf=(i-4)*2-1;
+                imagSelf=(i-4)*2; 
+            end
+            if i <5
+                realOther=(i)*2-1;
+                imagOther=(i)*2;
+                
+                realSelf=(i+4)*2-1;
+                imagSelf=(i+4)*2; 
+                
+            end
+
+           if i >4 && i<9
+                realOther=(i-4)*2-1;
+                imagOther=(i-4)*2;
+                
+                realSelf=(i)*2-1;
+                imagSelf=(i)*2;     
+            end
+            
+            str1 = sprintf('1./(1*abs(y(%d)+1i*y(%d)).^(%d)+1).*y(%d).*y(%d).*y(%d).*y(%d)/1976.0045 ',realOther,imagOther,normFactor,realOther,realOther,imagOther,realSelf);
+            strOut=append(str1);
+            youtBuilder{ind,1}=[strOut];
+            ind = ind+1;
+    end
+end
+
+%RRII
+if(polyorder>=2)
+    % poly order 2
+    for i=1:nVars
+       % for j=1:nVars
+            str1='quadI*I ';
+            str2=num2str(i);
+            str3=' , ';
+            str4=num2str(i);
+            strOutName=append(str1,str2,str3,str4);
+            yout{ind,1} = [strOutName];
+            
+            if i >8
+                realOther=(i-8)*2-1;
+                imagOther=(i-8)*2;
+                
+                realSelf=(i-4)*2-1;
+                imagSelf=(i-4)*2; 
+            end
+            if i <5
+                realOther=(i)*2-1;
+                imagOther=(i)*2;
+                
+                realSelf=(i+4)*2-1;
+                imagSelf=(i+4)*2; 
+                
+            end
+
+           if i >4 && i<9
+                realOther=(i-4)*2-1;
+                imagOther=(i-4)*2;
+                
+                realSelf=(i)*2-1;
+                imagSelf=(i)*2;     
+            end
+            
+            str1 = sprintf('1./(1*abs(y(%d)+1i*y(%d)).^(%d)+1).*y(%d).*y(%d).*y(%d).*y(%d)/1976.0045 ',realOther,imagOther,normFactor,realOther,realOther,imagOther,imagSelf);
+            strOut=append(str1);
+            youtBuilder{ind,1}=[strOut];
+            ind = ind+1;
+    end
+end
+%%%
+%RIIR
+if(polyorder>=2)
+    % poly order 2
+    for i=1:nVars
+       % for j=1:nVars
+            str1='quadI*I ';
+            str2=num2str(i);
+            str3=' , ';
+            str4=num2str(i);
+            strOutName=append(str1,str2,str3,str4);
+            yout{ind,1} = [strOutName];
+            
+            if i >8
+                realOther=(i-8)*2-1;
+                imagOther=(i-8)*2;
+                
+                realSelf=(i-4)*2-1;
+                imagSelf=(i-4)*2; 
+            end
+            if i <5
+                realOther=(i)*2-1;
+                imagOther=(i)*2;
+                
+                realSelf=(i+4)*2-1;
+                imagSelf=(i+4)*2; 
+                
+            end
+
+           if i >4 && i<9
+                realOther=(i-4)*2-1;
+                imagOther=(i-4)*2;
+                
+                realSelf=(i)*2-1;
+                imagSelf=(i)*2;     
+            end
+            
+            str1 = sprintf('1./(1*abs(y(%d)+1i*y(%d)).^(%d)+1).*y(%d).*y(%d).*y(%d).*y(%d)/1976.0045 ',realOther,imagOther,normFactor,realOther,imagOther,imagOther,realSelf);
+            strOut=append(str1);
+            youtBuilder{ind,1}=[strOut];
+            ind = ind+1;
+    end
+end
+
+
+%RRII
+if(polyorder>=2)
+    % poly order 2
+    for i=1:nVars
+       % for j=1:nVars
+            str1='quadI*I ';
+            str2=num2str(i);
+            str3=' , ';
+            str4=num2str(i);
+            strOutName=append(str1,str2,str3,str4);
+            yout{ind,1} = [strOutName];
+            
+            if i >8
+                realOther=(i-8)*2-1;
+                imagOther=(i-8)*2;
+                
+                realSelf=(i-4)*2-1;
+                imagSelf=(i-4)*2; 
+            end
+            if i <5
+                realOther=(i)*2-1;
+                imagOther=(i)*2;
+                
+                realSelf=(i+4)*2-1;
+                imagSelf=(i+4)*2; 
+                
+            end
+
+           if i >4 && i<9
+                realOther=(i-4)*2-1;
+                imagOther=(i-4)*2;
+                
+                realSelf=(i)*2-1;
+                imagSelf=(i)*2;     
+            end
+            
+            str1 = sprintf('1./(1*abs(y(%d)+1i*y(%d)).^(%d)+1).*y(%d).*y(%d).*y(%d).*y(%d)/1976.0045 ',realOther,imagOther,normFactor,realOther,imagOther,imagOther,imagSelf);
+            strOut=append(str1);
+            youtBuilder{ind,1}=[strOut];
+            ind = ind+1;
+    end
+end
+
+%%%%%%%%
+
+%IIIR
+if(polyorder>=2)
+    % poly order 2
+    for i=1:nVars
+       % for j=1:nVars
+            str1='quadI*I ';
+            str2=num2str(i);
+            str3=' , ';
+            str4=num2str(i);
+            strOutName=append(str1,str2,str3,str4);
+            yout{ind,1} = [strOutName];
+            
+            if i >8
+                realOther=(i-8)*2-1;
+                imagOther=(i-8)*2;
+                
+                realSelf=(i-4)*2-1;
+                imagSelf=(i-4)*2; 
+            end
+            if i <5
+                realOther=(i)*2-1;
+                imagOther=(i)*2;
+                
+                realSelf=(i+4)*2-1;
+                imagSelf=(i+4)*2; 
+                
+            end
+
+           if i >4 && i<9
+                realOther=(i-4)*2-1;
+                imagOther=(i-4)*2;
+                
+                realSelf=(i)*2-1;
+                imagSelf=(i)*2;     
+            end
+            
+            str1 = sprintf('1./(1*abs(y(%d)+1i*y(%d)).^(%d)+1).*y(%d).*y(%d).*y(%d).*y(%d)/1976.0045 ',realOther,imagOther,normFactor,imagOther,imagOther,imagOther,realSelf);
+            strOut=append(str1);
+            youtBuilder{ind,1}=[strOut];
+            ind = ind+1;
+    end
+end
+
+
+%IIII
+if(polyorder>=2)
+    % poly order 2
+    for i=1:nVars
+       % for j=1:nVars
+            str1='quadI*I ';
+            str2=num2str(i);
+            str3=' , ';
+            str4=num2str(i);
+            strOutName=append(str1,str2,str3,str4);
+            yout{ind,1} = [strOutName];
+            
+            if i >8
+                realOther=(i-8)*2-1;
+                imagOther=(i-8)*2;
+                
+                realSelf=(i-4)*2-1;
+                imagSelf=(i-4)*2; 
+            end
+            if i <5
+                realOther=(i)*2-1;
+                imagOther=(i)*2;
+                
+                realSelf=(i+4)*2-1;
+                imagSelf=(i+4)*2; 
+                
+            end
+
+           if i >4 && i<9
+                realOther=(i-4)*2-1;
+                imagOther=(i-4)*2;
+                
+                realSelf=(i)*2-1;
+                imagSelf=(i)*2;     
+            end
+            
+            str1 = sprintf('1./(1*abs(y(%d)+1i*y(%d)).^(%d)+1).*y(%d).*y(%d).*y(%d).*y(%d)/1976.0045 ',realOther,imagOther,normFactor,imagOther,imagOther,imagOther,imagSelf);
+            strOut=append(str1);
+            youtBuilder{ind,1}=[strOut];
+            ind = ind+1;
+    end
+end
+
