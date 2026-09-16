@@ -1,0 +1,125 @@
+%% computeMeanAngleError for mouse vs mouse in experiment
+for i=1:5
+    for j=i:5
+        startIndex=i*timeLength*5-timeLength*5+1;
+        endIndex=i*timeLength*5-timeLength*5+timeLength*1;
+        startIndex2=j*timeLength*5-timeLength*5+1;
+        endIndex2=j*timeLength*5-timeLength*5+timeLength*1;
+        
+        mMatrix1(i, j) = phaseAngleDiff(saveVars.F2SdiffdSaveStack15,startIndex,endIndex,startIndex2,endIndex2);
+        mMatrix2(i, j)=  phaseAngleDiff(saveVars.F2SdiffdSaveStack26,startIndex,endIndex,startIndex2,endIndex2); 
+        mMatrix3(i, j)=  phaseAngleDiff(saveVars.F2SdiffdSaveStack37,startIndex,endIndex,startIndex2,endIndex2);
+        mMatrix4(i, j)=  phaseAngleDiff(saveVars.F2SdiffdSaveStack48,startIndex,endIndex,startIndex2,endIndex2);        
+        mMatrix5(i, j)=  phaseAngleDiff(saveVars.F2SdiffdSaveStack19,startIndex,endIndex,startIndex2,endIndex2);         
+        mMatrix6(i, j)=  phaseAngleDiff(saveVars.F2SdiffdSaveStack210,startIndex,endIndex,startIndex2,endIndex2); 
+        mMatrix7(i, j)=  phaseAngleDiff(saveVars.F2SdiffdSaveStack311,startIndex,endIndex,startIndex2,endIndex2);
+        mMatrix8(i, j)=  phaseAngleDiff(saveVars.F2SdiffdSaveStack412,startIndex,endIndex,startIndex2,endIndex2);
+        mMatrix9(i, j)=  phaseAngleDiff(saveVars.F2SdiffdSaveStack59,startIndex,endIndex,startIndex2,endIndex2);
+        mMatrix10(i, j)=  phaseAngleDiff(saveVars.F2SdiffdSaveStack610,startIndex,endIndex,startIndex2,endIndex2);
+        mMatrix11(i, j)=  phaseAngleDiff(saveVars.F2SdiffdSaveStack711,startIndex,endIndex,startIndex2,endIndex2);
+        mMatrix12(i, j)=  phaseAngleDiff(saveVars.F2SdiffdSaveStack812,startIndex,endIndex,startIndex2,endIndex2);
+        
+        m2Matrix1(i, j) = phaseAngleDiff(saveVars.F2SdiffdSaveStack12,startIndex,endIndex,startIndex2,endIndex2);
+        m2Matrix2(i, j) = phaseAngleDiff(saveVars.F2SdiffdSaveStack34,startIndex,endIndex,startIndex2,endIndex2);
+        m2Matrix3(i, j) = phaseAngleDiff(saveVars.F2SdiffdSaveStack13,startIndex,endIndex,startIndex2,endIndex2);
+        m2Matrix4(i, j) = phaseAngleDiff(saveVars.F2SdiffdSaveStack24,startIndex,endIndex,startIndex2,endIndex2);
+        m2Matrix5(i, j) = phaseAngleDiff(saveVars.F2SdiffdSaveStack56,startIndex,endIndex,startIndex2,endIndex2);
+        m2Matrix6(i, j) = phaseAngleDiff(saveVars.F2SdiffdSaveStack78,startIndex,endIndex,startIndex2,endIndex2);
+        m2Matrix7(i, j) = phaseAngleDiff(saveVars.F2SdiffdSaveStack57,startIndex,endIndex,startIndex2,endIndex2);
+        m2Matrix8(i, j) = phaseAngleDiff(saveVars.F2SdiffdSaveStack68,startIndex,endIndex,startIndex2,endIndex2);
+        m2Matrix9(i, j) = phaseAngleDiff(saveVars.F2SdiffdSaveStack910,startIndex,endIndex,startIndex2,endIndex2);
+        
+
+        m2Matrix9(i, j) =abs((min(2*pi-abs(circ_mean(F2SdiffdSaveStack910(startIndex:endIndex))),abs(circ_mean(F2SdiffdSaveStack910(startIndex:endIndex)))) -min(2*pi-abs(circ_mean(F2SdiffdSaveStack910(startIndex2:endIndex2))),abs(circ_mean(F2SdiffdSaveStack910(startIndex2:endIndex2)))))/3.14);
+        m2Matrix10(i, j) = abs((min(2*pi-abs(circ_mean(F2SdiffdSaveStack1112(startIndex:endIndex))),abs(circ_mean(F2SdiffdSaveStack1112(startIndex:endIndex)))) -min(2*pi-abs(circ_mean(F2SdiffdSaveStack1112(startIndex2:endIndex2))),abs(circ_mean(F2SdiffdSaveStack1112(startIndex2:endIndex2)))))/3.14);
+        m2Matrix11(i, j) = abs((min(2*pi-abs(circ_mean(F2SdiffdSaveStack911(startIndex:endIndex))),abs(circ_mean(F2SdiffdSaveStack911(startIndex:endIndex)))) -min(2*pi-abs(circ_mean(F2SdiffdSaveStack911(startIndex2:endIndex2))),abs(circ_mean(F2SdiffdSaveStack911(startIndex2:endIndex2)))))/3.14);
+        m2Matrix12(i, j) = abs((min(2*pi-abs(circ_mean(F2SdiffdSaveStack1012(startIndex:endIndex))),abs(circ_mean(F2SdiffdSaveStack1012(startIndex:endIndex)))) -min(2*pi-abs(circ_mean(F2SdiffdSaveStack1012(startIndex2:endIndex2))),abs(circ_mean(F2SdiffdSaveStack1012(startIndex2:endIndex2)))))/3.14);
+    
+        
+        
+    end
+end
+
+upperTriangular = triu(mMatrix1, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+mSaveStack1mBAnim=mean(nonZeroElements);
+upperTriangular = triu(m2Matrix1, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+m2SaveStack1mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(mMatrix2, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+mSaveStack2mBAnim=mean(nonZeroElements);
+upperTriangular = triu(m2Matrix2, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+m2SaveStack2mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(mMatrix3, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+mSaveStack3mBAnim=mean(nonZeroElements);
+upperTriangular = triu(m2Matrix3, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+m2SaveStack3mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(mMatrix4, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+mSaveStack4mBAnim=mean(nonZeroElements);
+upperTriangular = triu(m2Matrix4, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+m2SaveStack4mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(mMatrix5, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+mSaveStack5mBAnim=mean(nonZeroElements);
+upperTriangular = triu(m2Matrix5, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+m2SaveStack5mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(mMatrix6, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+mSaveStack6mBAnim=mean(nonZeroElements);
+upperTriangular = triu(m2Matrix6, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+m2SaveStack6mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(mMatrix7, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+mSaveStack7mBAnim=mean(nonZeroElements);
+upperTriangular = triu(m2Matrix7, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+m2SaveStack7mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(mMatrix8, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+mSaveStack8mBAnim=mean(nonZeroElements);
+upperTriangular = triu(m2Matrix8, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+m2SaveStack8mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(mMatrix9, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+mSaveStack9mBAnim=mean(nonZeroElements);
+upperTriangular = triu(m2Matrix9, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+m2SaveStack9mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(mMatrix10, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+mSaveStack10mBAnim=mean(nonZeroElements);
+upperTriangular = triu(m2Matrix10, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+m2SaveStack10mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(mMatrix11, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+mSaveStack11mBAnim=mean(nonZeroElements);
+upperTriangular = triu(m2Matrix11, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+m2SaveStack11mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(mMatrix12, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+mSaveStack12mBAnim=mean(nonZeroElements);
+upperTriangular = triu(m2Matrix12, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+m2SaveStack12mBAnim=mean(nonZeroElements);

@@ -1,0 +1,16 @@
+%function that can be used to time how a long simulations take and stop
+%them if they are going on too long. Change 
+function [values,isterminal,direction] = stopODE(t,x,tstart)
+ values(1) = t;
+ %values(2) = toc(tstart) < 20;
+ values(2) = toc(tstart) < 20*factor;
+ 
+ %changeBackStopODE=1
+ %  Don't let integration go for more than 20 seconds.
+ %values(2) = toc(tstart) <0.000000001;
+
+ isterminal = true(size(values));
+ direction = zeros(size(values));
+ 
+
+ 

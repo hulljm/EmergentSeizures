@@ -1,0 +1,56 @@
+%script used by simulateSeizures that builds a dynamical systems model from coefficients
+%%
+%open file to write the model to
+fileID=fopen('explicitModel.m','w');
+%define the system as dy=[]
+fprintf(fileID,'function dy = explicitModel(t,y,noise1)');
+fprintf(fileID, '\n');
+
+fprintf(fileID, '\n');
+
+%%%%part that sets up the function writing
+fprintf(fileID, 'dy= [');
+fprintf(fileID, '\n');
+
+%logic of system of equations: x is computed from x1
+%builds model where the odd numbered functions are x and even fu
+onlyOdds=0;
+for i=1:size(Xi_real,2)
+
+    for j=1:size(Xi_real,1)
+        if abs(Xi_real(j,i))>0
+            XiInd=Xi_real(j,i);
+            functionText=char(pListBuilder(j,1));
+            fprintf(fileID, '%.13f', XiInd);
+            fprintf(fileID,'*');
+            fprintf(fileID, '%c', functionText);
+            fprintf(fileID,'*1+');
+            
+        end
+    end
+    
+    fprintf(fileID, '%f', bOutReal(i).bfitInfo.Intercept(modelNum));
+    fprintf(fileID, '; \n');
+    
+    %%% Imag part
+    for j=1:size(Xi_imag,1)
+        if abs(Xi_imag(j,i))>0
+            XiInd=Xi_imag(j,i);
+            functionText=char(pListBuilder(j,1));
+             fprintf(fileID, '%.13f', XiInd);
+            fprintf(fileID,'*');
+            fprintf(fileID, '%c', functionText);
+            fprintf(fileID,'*1+');
+        end      
+    end
+    
+    %fprintf(fileID, '%f', 0);
+    fprintf(fileID, '%f', bOutImag(i).bfitInfo.Intercept(modelNum));
+    fprintf(fileID, '; \n');
+    
+    
+end
+fprintf(fileID,'1;');
+fprintf(fileID, '\n');
+fprintf(fileID, '];');
+fclose('all');

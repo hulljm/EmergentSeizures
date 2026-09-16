@@ -1,0 +1,562 @@
+% script used by simulateSeizures to plot outputs of model
+%%
+figure()
+  hold on
+  
+        plot(tB(:,1)+1,xB(:,whichone*2-1)+xB(:,(whichone+4)*2-1)+xB(:,(whichone+8)*2-1));
+  ylabel('Mot Voltage')
+  xlabel('time in samples')
+  
+  figure()
+  plot(F2SdiffdSave57)
+  hold on
+  plot(F2SdiffmSave57)
+  ylabel('Mot Som band 2 Phase Difference')
+  xlabel('time in samples, 5 seizures')
+  clear circComp
+
+    
+    %% plot phase measures
+    %%
+figure;
+gridSize = [6, 4];
+subplot(gridSize(1), gridSize(2), 1);
+%
+  h=polarhistogram((F2SdiffdSaveStack12),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+  h2=polarhistogram((F2SdiffmSaveStack12),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+    % Modify r-axis labels
+    rlim([0, 1]);
+    % Modify r-axis labels
+    rlim([0, 0.8]);
+    rlabels = {'', '0.4', '0.8'};
+    rticks = linspace(0, 0.8, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+
+%plot position 2
+subplot(gridSize(1), gridSize(2), 2);
+
+  h=polarhistogram((F2SdiffdSaveStack34),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+  h2=polarhistogram((F2SdiffmSaveStack34),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+
+    % Modify r-axis labels
+    rlim([0, 0.4]);
+    rlabels = {'', '0.2', '0.4'};
+    rticks = linspace(0, 0.4, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+
+%plot position 3
+subplot(gridSize(1), gridSize(2), 3);
+
+  h=polarhistogram((F2SdiffdSaveStack13),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+  h2=polarhistogram((F2SdiffmSaveStack13),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+    % Modify r-axis labels
+    rlim([0, 1]);
+    % Modify r-axis labels
+    rlim([0, 0.6]);
+    rlabels = {'', '0.3', '0.6'};
+    rticks = linspace(0, 0.6, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+    
+%plot position 4
+subplot(gridSize(1), gridSize(2), 4);
+
+  h=polarhistogram((F2SdiffdSaveStack24),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+  h2=polarhistogram((F2SdiffmSaveStack24),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+    % Modify r-axis labels
+    rlim([0, 1]);
+    % Modify r-axis labels
+    rlim([0, 0.6]);
+    rlabels = {'', '0.3', '0.6'};
+    rticks = linspace(0, 0.6, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+
+
+
+
+subplot(gridSize(1), gridSize(2), 5);
+  h=polarhistogram((F2SdiffdSaveStack56),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+  h2=polarhistogram((F2SdiffmSaveStack56),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+    
+    % Modify r-axis labels
+    rlim([0, 0.8]);
+    rlabels = {'', '0.4','0.8'};
+    rticks = linspace(0, 0.8, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+
+%plot position 2
+subplot(gridSize(1), gridSize(2), 6);
+
+  h=polarhistogram((F2SdiffdSaveStack78),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+  h2=polarhistogram((F2SdiffmSaveStack78),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+
+    % Modify r-axis labels
+    rlim([0, 0.4]);
+    rlabels = {'', '0.2', '0.4'};
+    rticks = linspace(0, 0.4, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+
+%plot position 3
+subplot(gridSize(1), gridSize(2), 7);
+
+  h=polarhistogram((F2SdiffdSaveStack57),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+  h2=polarhistogram((F2SdiffmSaveStack57),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+
+    % Modify r-axis labels
+    rlim([0, 0.6]);
+    rlabels = {'', '0.3', '0.6'};
+    rticks = linspace(0, 0.6, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+
+%plot position 4
+subplot(gridSize(1), gridSize(2), 8);
+
+  h=polarhistogram((F2SdiffdSaveStack68),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+  h2=polarhistogram((F2SdiffmSaveStack68),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+
+    % Modify r-axis labels
+    rlim([0, 0.4]);
+    rlabels = {'', '0.2', '0.4'};
+    rticks = linspace(0, 0.4, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+
+
+
+
+
+subplot(gridSize(1), gridSize(2), 9);
+  h=polarhistogram((F2SdiffdSaveStack910),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+  h2=polarhistogram((F2SdiffmSaveStack910),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+
+    % Modify r-axis labels
+    rlim([0, 0.8]);
+    rlabels = {'', '0.4', '0.8'};
+    rticks = linspace(0, 0.8, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+
+%plot position 2
+subplot(gridSize(1), gridSize(2), 10);
+
+  h=polarhistogram((F2SdiffdSaveStack1112),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+  h2=polarhistogram((F2SdiffmSaveStack1112),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+
+    % Modify r-axis labels
+    rlim([0, 0.4]);
+    rlabels = {'', '0.2', '0.4'};
+    rticks = linspace(0, 0.4, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+    
+    
+%plot position 3
+subplot(gridSize(1), gridSize(2), 11);
+
+  h=polarhistogram((F2SdiffdSaveStack911),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+  h2=polarhistogram((F2SdiffmSaveStack911),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+
+    % Modify r-axis labels
+    rlim([0, 0.4]);
+    rlabels = {'', '0.2', '0.4'};
+    rticks = linspace(0, 0.4, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+
+%plot position 4
+subplot(gridSize(1), gridSize(2), 12);
+
+  h=polarhistogram((F2SdiffdSaveStack1012),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+  h2=polarhistogram((F2SdiffmSaveStack1012),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+
+    % Modify r-axis labels
+    rlim([0, 0.4]);
+    rlabels = {'', '0.2', '0.4'};
+    rticks = linspace(0, 0.4, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+
+
+%%
+%%
+figure;
+gridSize = [6, 4];
+subplot(gridSize(1), gridSize(2), 1);
+  h=polarhistogram((F2SdiffdSaveStack15),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+  h2=polarhistogram((F2SdiffmSaveStack15),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+    % Modify r-axis labels
+    % Modify r-axis labels
+    rlim([0, 0.5]);
+    rlabels = {'','0.25', '0.5'};
+    rticks = linspace(0, 0.5, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+
+%plot position 2
+subplot(gridSize(1), gridSize(2), 2);
+
+  h=polarhistogram((F2SdiffdSaveStack26),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+   h2=polarhistogram((F2SdiffmSaveStack26),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+    % Modify r-axis labels
+    % Modify r-axis labels
+    rlim([0, 0.5]);
+    rlabels = {'', '0.25', '0.5'};
+    rticks = linspace(0, 0.5, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+
+%plot position 3
+subplot(gridSize(1), gridSize(2), 3);
+
+  h=polarhistogram((F2SdiffdSaveStack37),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+   h2=polarhistogram((F2SdiffmSaveStack37),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+    % Modify r-axis labels
+    % Modify r-axis labels
+    rlim([0, 0.3]);
+    rlabels = {'', '0.15','0.3'};
+    rticks = linspace(0, 0.3, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+
+%plot position 4
+subplot(gridSize(1), gridSize(2), 4);
+
+  h=polarhistogram((F2SdiffdSaveStack48),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+  h2=polarhistogram((F2SdiffmSaveStack48),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+    % Modify r-axis labels
+    % Modify r-axis labels
+    rlim([0, 0.3]);
+    rlabels = {'', '0.15', '0.3'};
+    rticks = linspace(0, 0.3, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+
+
+
+
+
+subplot(gridSize(1), gridSize(2), 5);
+  h=polarhistogram((F2SdiffdSaveStack19),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+   h2=polarhistogram((F2SdiffmSaveStack19),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+    % Modify r-axis labels
+    % Modify r-axis labels
+    rlim([0, 0.5]);
+    rlabels = {'', '0.25', '0.5'};
+    rticks = linspace(0, 0.5, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+
+%plot position 2
+subplot(gridSize(1), gridSize(2), 6);
+
+  h=polarhistogram((F2SdiffdSaveStack210),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+  h2=polarhistogram((F2SdiffmSaveStack210),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+    % Modify r-axis labels
+    % Modify r-axis labels
+    rlim([0, 0.5]);
+    rlabels = {'', '0.25', '0.5'};
+    rticks = linspace(0, 0.5, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+
+%plot position 3
+subplot(gridSize(1), gridSize(2), 7);
+
+  h=polarhistogram((F2SdiffdSaveStack311),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+   h2=polarhistogram((F2SdiffmSaveStack311),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+    % Modify r-axis labels
+    % Modify r-axis labels
+    rlim([0, 0.3]);
+    rlabels = {'', '0.15', '0.3'};
+    rticks = linspace(0, 0.3, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+
+%plot position 4
+subplot(gridSize(1), gridSize(2), 8);
+
+  h=polarhistogram((F2SdiffdSaveStack412),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+   h2=polarhistogram((F2SdiffmSaveStack412),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+    % Modify r-axis labels
+    % Modify r-axis labels
+    rlim([0, 0.3]);
+    rlabels = {'', '0.15', '0.3'};
+    rticks = linspace(0, 0.3, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+
+
+
+
+subplot(gridSize(1), gridSize(2), 9);
+  h=polarhistogram((F2SdiffdSaveStack59),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+   h2=polarhistogram((F2SdiffmSaveStack59),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+    % Modify r-axis labels
+    % Modify r-axis labels
+    rlim([0, 0.5]);
+    rlabels = {'', '0.25', '0.5'};
+    rticks = linspace(0, 0.5, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+
+%plot position 2
+subplot(gridSize(1), gridSize(2), 10);
+
+  h=polarhistogram((F2SdiffdSaveStack610),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+   h2=polarhistogram((F2SdiffmSaveStack610),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+    % Modify r-axis labels
+    % Modify r-axis labels
+    rlim([0, 0.5]);
+    rlabels = {'', '0.25', '0.5'};
+    rticks = linspace(0, 0.5, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+
+%plot position 3
+subplot(gridSize(1), gridSize(2), 11);
+
+  h=polarhistogram((F2SdiffdSaveStack711),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+   h2=polarhistogram((F2SdiffmSaveStack711),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+    % Modify r-axis labels
+    % Modify r-axis labels
+    rlim([0, 0.3]);
+    rlabels = {'', '0.15', '0.3'};
+    rticks = linspace(0, 0.3, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+
+%plot position 4
+subplot(gridSize(1), gridSize(2), 12);
+
+  h=polarhistogram((F2SdiffdSaveStack812),polBins,'normalization','probability','FaceColor',[0.1 0.1 0.1],'EdgeColor', 'none')
+  hold on
+   h2=polarhistogram((F2SdiffmSaveStack812),polBins,'normalization','probability','FaceColor',[0.93 0.20 0.10],'EdgeColor', 'none')
+
+set(gca, 'ThetaZeroLocation', 'right');
+    set(gca, 'ThetaDir', 'counterclockwise');
+    pax=gca
+    % Set the theta ticks and labels
+    thetaticks(pax,[0 90 180 270])
+    thetaticklabels(pax,{'\fontsize{10}\bf0','\fontsize{13}\bf \pi\fontsize{10}\bf/2','\fontsize{13}\bf\pi',''})
+    % Modify r-axis labels
+    % Modify r-axis labels
+    rlim([0, 0.3]);
+    rlabels = {'', '0.15', '0.3'};
+    rticks = linspace(0, 0.3, numel(rlabels));
+    pax.RTick = rticks;
+    pax.RTickLabel = rlabels;
+    pax.RAxisLocation = 140;
+

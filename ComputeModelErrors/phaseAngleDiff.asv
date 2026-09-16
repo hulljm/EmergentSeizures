@@ -1,0 +1,4 @@
+function [subtractionResults] = phaseAngleDiff(signal, )
+ subtractionResults=abs((min(2*pi-abs(circ_mean(signal1)),abs(circ_mean(signal1))) -min(2*pi-abs(circ_mean(signal2)),abs(circ_mean(signal2))))/3.14);
+end
+

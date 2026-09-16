@@ -1,0 +1,441 @@
+
+%compute mean phase angle for model vs data, get 5 pts for 5 mice
+
+%compute pariwise m error
+computeMeanAngleErrorMouseVsMouse;
+%%
+%computeMeanAngleError for model vs experiment
+for whichMouse=1:5
+timeLength=1500;
+
+startIndex=whichMouse*timeLength*5-timeLength*5+1;
+endIndex=whichMouse*timeLength*5-timeLength*5+timeLength*1;
+
+%1:5 15
+transBandM(whichMouse,1)= (abs((min(2*pi-abs(circ_mean(saveVars.F2SdiffdSaveStack15(startIndex:endIndex))),abs(circ_mean(saveVars.F2SdiffdSaveStack15(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(saveVars.F2SdiffmSaveStack15(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffmSaveStack15(startIndex:endIndex)))))/3.14)-mSaveStack1mBAnim);
+
+
+%2:6 26
+transBandM(whichMouse,2)= (abs((min(2*pi-abs(circ_mean(saveVars.F2SdiffdSaveStack26(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffdSaveStack26(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(saveVars.F2SdiffmSaveStack26(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffmSaveStack26(startIndex:endIndex)))))/3.14)-mSaveStack2mBAnim);
+
+%3:7 37
+transBandM(whichMouse,3)= (abs((min(2*pi-abs(circ_mean(saveVars.F2SdiffdSaveStack37(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffdSaveStack37(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(saveVars.F2SdiffmSaveStack37(startIndex:endIndex-0))),abs(circ_mean(F2SdiffmSaveStack37(saveVars.startIndex:endIndex-0)))))/3.14)-mSaveStack3mBAnim);
+
+%4:8 48
+transBandM(whichMouse,4)= (abs((min(2*pi-abs(circ_mean(saveVars.F2SdiffdSaveStack48(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffdSaveStack48(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(saveVars.F2SdiffmSaveStack48(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffmSaveStack48(startIndex:endIndex-0)))))/3.14)-mSaveStack4mBAnim);
+
+%9:1 19
+transBandM(whichMouse,5)= (abs((min(2*pi-abs(circ_mean(saveVars.F2SdiffdSaveStack19(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffdSaveStack19(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(saveVars.F2SdiffmSaveStack19(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffmSaveStack19(startIndex:endIndex-0)))))/3.14)-mSaveStack5mBAnim);
+
+%10:2 210
+transBandM(whichMouse,6)= (abs((min(2*pi-abs(circ_mean(saveVars.F2SdiffdSaveStack210(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffdSaveStack210(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(saveVars.F2SdiffmSaveStack210(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffmSaveStack210(startIndex:endIndex-0)))))/3.14)-mSaveStack6mBAnim);
+
+%11:3 311
+transBandM(whichMouse,7)= (abs((min(2*pi-abs(circ_mean(saveVars.F2SdiffdSaveStack311(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffdSaveStack311(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(saveVars.F2SdiffmSaveStack311(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffmSaveStack311(startIndex:endIndex-0)))))/3.14)-mSaveStack7mBAnim);
+
+%12:4 412
+transBandM(whichMouse,8)= (abs((min(2*pi-abs(circ_mean(saveVars.F2SdiffdSaveStack412(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffdSaveStack412(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(saveVars.F2SdiffmSaveStack412(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffmSaveStack412(startIndex:endIndex-0)))))/3.14)-mSaveStack8mBAnim);
+
+%5:9 59
+transBandM(whichMouse,9)=abs( abs((min(2*pi-abs(circ_mean(saveVars.F2SdiffdSaveStack59(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffdSaveStack59(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(saveVars.F2SdiffmSaveStack59(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffmSaveStack59(startIndex:endIndex-0)))))/3.14)-mSaveStack9mBAnim);
+
+%6:10 610
+transBandM(whichMouse,10)=abs( abs((min(2*pi-abs(circ_mean(saveVars.F2SdiffdSaveStack610(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffdSaveStack610(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(saveVars.F2SdiffmSaveStack610(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffmSaveStack610(startIndex:endIndex-0)))))/3.14)-mSaveStack10mBAnim);
+
+%7:11 711
+transBandM(whichMouse,11)=abs( abs((min(2*pi-abs(circ_mean(saveVars.F2SdiffdSaveStack711(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffdSaveStack711(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(saveVars.F2SdiffmSaveStack711(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffmSaveStack711(startIndex:endIndex-0)))))/3.14)-mSaveStack11mBAnim);
+
+%8:12 812
+transBandM(whichMouse,12)=abs( abs((min(2*pi-abs(circ_mean(saveVars.F2SdiffdSaveStack812(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffdSaveStack812(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(saveVars.F2SdiffmSaveStack812(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffmSaveStack812(startIndex:endIndex-0)))))/3.14)-mSaveStack12mBAnim);
+
+%Cross regional
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+%1:2 12
+transRegionM(whichMouse,1)= (abs((min(2*pi-abs(circ_mean(saveVars.F2SdiffdSaveStack12(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffdSaveStack12(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(saveVars.F2SdiffmSaveStack12(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffmSaveStack12(startIndex:endIndex-0)))))/3.14)-m2SaveStack1mBAnim);
+
+%3:4 34
+transRegionM(whichMouse,2)= (abs((min(2*pi-abs(circ_mean(saveVars.F2SdiffdSaveStack34(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffdSaveStack34(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(saveVars.F2SdiffmSaveStack34(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffmSaveStack34(startIndex:endIndex-0)))))/3.14)-m2SaveStack2mBAnim);
+
+%1:3 13
+transRegionM(whichMouse,3)= (abs((min(2*pi-abs(circ_mean(saveVars.F2SdiffdSaveStack13(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffdSaveStack13(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(saveVars.F2SdiffmSaveStack13(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffmSaveStack13(startIndex:endIndex-0)))))/3.14)-m2SaveStack3mBAnim);
+
+%2:4 24
+transRegionM(whichMouse,4)= (abs((min(2*pi-abs(circ_mean(saveVars.F2SdiffdSaveStack24(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffdSaveStack24(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(saveVars.F2SdiffmSaveStack24(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffmSaveStack24(startIndex:endIndex-0)))))/3.14)-m2SaveStack4mBAnim);
+
+
+%5:6 56
+transRegionM(whichMouse,5)= (abs((min(2*pi-abs(circ_mean(saveVars.F2SdiffdSaveStack56(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffdSaveStack56(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(saveVars.F2SdiffmSaveStack56(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffmSaveStack56(startIndex:endIndex-0)))))/3.14)-m2SaveStack5mBAnim);
+
+%7:8 78
+transRegionM(whichMouse,6)= (abs((min(2*pi-abs(circ_mean(saveVars.F2SdiffdSaveStack78(startIndex:endIndex-0))),abs(circ_mean(saveVars.F2SdiffdSaveStack78(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(F2SdiffmSaveStack78(startIndex:endIndex-0))),abs(circ_mean(F2SdiffmSaveStack78(startIndex:endIndex-0)))))/3.14)-m2SaveStack6mBAnim);
+
+%5:7 57
+transRegionM(whichMouse,7)= (abs((min(2*pi-abs(circ_mean(F2SdiffdSaveStack57(startIndex:endIndex-0))),abs(circ_mean(F2SdiffdSaveStack57(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(F2SdiffmSaveStack57(startIndex:endIndex-0))),abs(circ_mean(F2SdiffmSaveStack57(startIndex:endIndex-0)))))/3.14)-m2SaveStack7mBAnim);
+
+%6:8 68
+transRegionM(whichMouse,8)= (abs((min(2*pi-abs(circ_mean(F2SdiffdSaveStack68(startIndex:endIndex-0))),abs(circ_mean(F2SdiffdSaveStack68(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(F2SdiffmSaveStack68(startIndex:endIndex-0))),abs(circ_mean(F2SdiffmSaveStack68(startIndex:endIndex-0)))))/3.14)-m2SaveStack8mBAnim);
+
+%9:10 910
+transRegionM(whichMouse,9)=abs( abs((min(2*pi-abs(circ_mean(F2SdiffdSaveStack910(startIndex:endIndex-0))),abs(circ_mean(F2SdiffdSaveStack910(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(F2SdiffmSaveStack910(startIndex:endIndex-0))),abs(circ_mean(F2SdiffmSaveStack910(startIndex:endIndex-0)))))/3.14)-m2SaveStack9mBAnim);
+
+%11:12 1112
+transRegionM(whichMouse,10)= (abs((min(2*pi-abs(circ_mean(F2SdiffdSaveStack1112(startIndex:endIndex-0))),abs(circ_mean(F2SdiffdSaveStack1112(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(F2SdiffmSaveStack1112(startIndex:endIndex-0))),abs(circ_mean(F2SdiffmSaveStack1112(startIndex:endIndex-0)))))/3.14)-m2SaveStack10mBAnim);
+
+%9:11 911
+transRegionM(whichMouse,11)= (abs((min(2*pi-abs(circ_mean(F2SdiffdSaveStack911(startIndex:endIndex-0))),abs(circ_mean(F2SdiffdSaveStack911(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(F2SdiffmSaveStack911(startIndex:endIndex-0))),abs(circ_mean(F2SdiffmSaveStack911(startIndex:endIndex-0)))))/3.14)-m2SaveStack11mBAnim);
+
+%10:12 1012
+transRegionM(whichMouse,12)= (abs((min(2*pi-abs(circ_mean(F2SdiffdSaveStack1012(startIndex:endIndex-0))),abs(circ_mean(F2SdiffdSaveStack1012(startIndex:endIndex-0))))...
+ -min(2*pi-abs(circ_mean(F2SdiffmSaveStack1012(startIndex:endIndex-0))),abs(circ_mean(F2SdiffmSaveStack1012(startIndex:endIndex-0)))))/3.14)-m2SaveStack12mBAnim);
+end
+
+
+%%
+%computeRError
+%compute pariwise r error
+for i=1:5
+    for j=i:5
+        startIndex=i*timeLength*5-timeLength*5+1;
+        endIndex=i*timeLength*5-timeLength*5+timeLength*1;
+        startIndex2=j*timeLength*5-timeLength*5+1;
+        endIndex2=j*timeLength*5-timeLength*5+timeLength*1;
+        
+        rMatrix1(i, j) = abs(circ_r(F2SdiffdSaveStack15(startIndex:endIndex))-circ_r(F2SdiffdSaveStack15(startIndex2:endIndex2)));
+        rMatrix2(i, j) = abs(circ_r(F2SdiffdSaveStack26(startIndex:endIndex))-circ_r(F2SdiffdSaveStack26(startIndex2:endIndex2)));
+        rMatrix3(i, j) = abs(circ_r(F2SdiffdSaveStack37(startIndex:endIndex))-circ_r(F2SdiffdSaveStack37(startIndex2:endIndex2)));
+        rMatrix4(i, j) = abs(circ_r(F2SdiffdSaveStack48(startIndex:endIndex))-circ_r(F2SdiffdSaveStack48(startIndex2:endIndex2)));
+        rMatrix5(i, j) = abs(circ_r(F2SdiffdSaveStack19(startIndex:endIndex))-circ_r(F2SdiffdSaveStack19(startIndex2:endIndex2)));
+        rMatrix6(i, j) = abs(circ_r(F2SdiffdSaveStack210(startIndex:endIndex))-circ_r(F2SdiffdSaveStack210(startIndex2:endIndex2)));
+        rMatrix7(i, j) = abs(circ_r(F2SdiffdSaveStack311(startIndex:endIndex))-circ_r(F2SdiffdSaveStack311(startIndex2:endIndex2)));
+        rMatrix8(i, j) = abs(circ_r(F2SdiffdSaveStack412(startIndex:endIndex))-circ_r(F2SdiffdSaveStack412(startIndex2:endIndex2)));
+        rMatrix9(i, j) = abs(circ_r(F2SdiffdSaveStack59(startIndex:endIndex))-circ_r(F2SdiffdSaveStack59(startIndex2:endIndex2)));
+        rMatrix10(i, j) = abs(circ_r(F2SdiffdSaveStack610(startIndex:endIndex))-circ_r(F2SdiffdSaveStack610(startIndex2:endIndex2)));
+        rMatrix11(i, j) = abs(circ_r(F2SdiffdSaveStack711(startIndex:endIndex))-circ_r(F2SdiffdSaveStack711(startIndex2:endIndex2)));
+        rMatrix12(i, j) = abs(circ_r(F2SdiffdSaveStack812(startIndex:endIndex))-circ_r(F2SdiffdSaveStack812(startIndex2:endIndex2)));
+    
+        r2Matrix1(i, j) = abs(circ_r(F2SdiffdSaveStack12(startIndex:endIndex))-circ_r(F2SdiffdSaveStack12(startIndex2:endIndex2)));
+        r2Matrix2(i, j) = abs(circ_r(F2SdiffdSaveStack34(startIndex:endIndex))-circ_r(F2SdiffdSaveStack34(startIndex2:endIndex2)));
+        r2Matrix3(i, j) = abs(circ_r(F2SdiffdSaveStack13(startIndex:endIndex))-circ_r(F2SdiffdSaveStack13(startIndex2:endIndex2)));
+        r2Matrix4(i, j) = abs(circ_r(F2SdiffdSaveStack24(startIndex:endIndex))-circ_r(F2SdiffdSaveStack24(startIndex2:endIndex2)));
+        r2Matrix5(i, j) = abs(circ_r(F2SdiffdSaveStack56(startIndex:endIndex))-circ_r(F2SdiffdSaveStack56(startIndex2:endIndex2)));
+        r2Matrix6(i, j) = abs(circ_r(F2SdiffdSaveStack78(startIndex:endIndex))-circ_r(F2SdiffdSaveStack78(startIndex2:endIndex2)));
+        r2Matrix7(i, j) = abs(circ_r(F2SdiffdSaveStack57(startIndex:endIndex))-circ_r(F2SdiffdSaveStack57(startIndex2:endIndex2)));
+        r2Matrix8(i, j) = abs(circ_r(F2SdiffdSaveStack68(startIndex:endIndex))-circ_r(F2SdiffdSaveStack68(startIndex2:endIndex2)));
+        r2Matrix9(i, j) = abs(circ_r(F2SdiffdSaveStack910(startIndex:endIndex))-circ_r(F2SdiffdSaveStack910(startIndex2:endIndex2)));
+        r2Matrix10(i, j) = abs(circ_r(F2SdiffdSaveStack1112(startIndex:endIndex))-circ_r(F2SdiffdSaveStack1112(startIndex2:endIndex2)));
+        r2Matrix11(i, j) = abs(circ_r(F2SdiffdSaveStack911(startIndex:endIndex))-circ_r(F2SdiffdSaveStack911(startIndex2:endIndex2)));
+        r2Matrix12(i, j) = abs(circ_r(F2SdiffdSaveStack1012(startIndex:endIndex))-circ_r(F2SdiffdSaveStack1012(startIndex2:endIndex2)));
+    
+    end
+end
+
+upperTriangular = triu(rMatrix1, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+rSaveStack1mBAnim=mean(nonZeroElements);
+upperTriangular = triu(r2Matrix1, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+r2SaveStack1mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(rMatrix2, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+rSaveStack2mBAnim=mean(nonZeroElements);
+upperTriangular = triu(r2Matrix2, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+r2SaveStack2mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(rMatrix3, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+rSaveStack3mBAnim=mean(nonZeroElements);
+upperTriangular = triu(r2Matrix3, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+r2SaveStack3mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(rMatrix4, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+rSaveStack4mBAnim=mean(nonZeroElements);
+upperTriangular = triu(r2Matrix4, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+r2SaveStack4mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(rMatrix5, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+rSaveStack5mBAnim=mean(nonZeroElements);
+upperTriangular = triu(r2Matrix5, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+r2SaveStack5mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(rMatrix6, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+rSaveStack6mBAnim=mean(nonZeroElements);
+upperTriangular = triu(r2Matrix6, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+r2SaveStack6mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(rMatrix7, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+rSaveStack7mBAnim=mean(nonZeroElements);
+upperTriangular = triu(r2Matrix7, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+r2SaveStack7mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(rMatrix8, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+rSaveStack8mBAnim=mean(nonZeroElements);
+upperTriangular = triu(r2Matrix8, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+r2SaveStack8mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(rMatrix9, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+rSaveStack9mBAnim=mean(nonZeroElements);
+upperTriangular = triu(r2Matrix9, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+r2SaveStack9mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(rMatrix10, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+rSaveStack10mBAnim=mean(nonZeroElements);
+upperTriangular = triu(r2Matrix10, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+r2SaveStack10mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(rMatrix11, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+rSaveStack11mBAnim=mean(nonZeroElements);
+upperTriangular = triu(r2Matrix11, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+r2SaveStack11mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(rMatrix12, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+rSaveStack12mBAnim=mean(nonZeroElements);
+upperTriangular = triu(r2Matrix12, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+r2SaveStack12mBAnim=mean(nonZeroElements);
+
+%computeRError
+for whichMouse=1:5
+startIndex=whichMouse*timeLength*5-timeLength*5+1;
+endIndex=whichMouse*timeLength*5-timeLength*5+timeLength*5;
+
+%1:5 15
+transBandR(whichMouse,1)= (abs(circ_r(F2SdiffmSaveStack15(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack15(startIndex:endIndex-0)))-rSaveStack1mBAnim);
+%2:6 26
+ transBandR(whichMouse,2)= (abs(circ_r(F2SdiffmSaveStack26(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack26(startIndex:endIndex-0)))-rSaveStack2mBAnim);
+% %3:7 37
+ transBandR(whichMouse,3)= (abs(circ_r(F2SdiffmSaveStack37(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack37(startIndex:endIndex-0)))-rSaveStack3mBAnim);
+% %4:8 48
+ transBandR(whichMouse,4)= (abs(circ_r(F2SdiffmSaveStack48(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack48(startIndex:endIndex-0)))-rSaveStack4mBAnim);
+% %9:1 19
+ transBandR(whichMouse,5)= (abs(circ_r(F2SdiffmSaveStack19(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack19(startIndex:endIndex-0)))-rSaveStack5mBAnim);
+% %10:2 210
+ transBandR(whichMouse,6)= (abs(circ_r(F2SdiffmSaveStack210(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack210(startIndex:endIndex-0)))-rSaveStack6mBAnim);
+% %11:3 311
+ transBandR(whichMouse,7)= (abs(circ_r(F2SdiffmSaveStack311(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack311(startIndex:endIndex-0)))-rSaveStack7mBAnim);
+% %12:4 412
+ transBandR(whichMouse,8)=  (abs(circ_r(F2SdiffmSaveStack412(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack412(startIndex:endIndex-0)))-rSaveStack8mBAnim);
+% %5:9 59
+ transBandR(whichMouse,9)=  (abs(circ_r(F2SdiffmSaveStack59(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack59(startIndex:endIndex-0)))-rSaveStack9mBAnim);
+% %6:10 610
+ transBandR(whichMouse,10)=  (abs(circ_r(F2SdiffmSaveStack610(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack610(startIndex:endIndex-0)))-rSaveStack10mBAnim);
+% %7:11 711
+ transBandR(whichMouse,11)=  (abs(circ_r(F2SdiffmSaveStack711(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack711(startIndex:endIndex-0)))-rSaveStack11mBAnim);
+% %8:12 812
+ transBandR(whichMouse,12)=  (abs(circ_r(F2SdiffmSaveStack812(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack812(startIndex:endIndex-0)))-rSaveStack12mBAnim);
+
+%Cross regional
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+%1:2 12
+ transRegionR(whichMouse,1)= (abs(circ_r(F2SdiffmSaveStack12(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack12(startIndex:endIndex-0)))-r2SaveStack1mBAnim);
+%3:4 34
+ transRegionR(whichMouse,2)= (abs(circ_r(F2SdiffmSaveStack34(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack34(startIndex:endIndex-0)))-r2SaveStack2mBAnim);
+% %1:3 13
+ transRegionR(whichMouse,3)=(abs(circ_r(F2SdiffmSaveStack13(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack13(startIndex:endIndex-0)))-r2SaveStack3mBAnim);
+% %2:4 24
+ transRegionR(whichMouse,4)= (abs(circ_r(F2SdiffmSaveStack24(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack24(startIndex:endIndex-0)))-r2SaveStack4mBAnim);
+% 
+% %5:6 56
+ transRegionR(whichMouse,5)= (abs(circ_r(F2SdiffmSaveStack56(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack56(startIndex:endIndex-0)))-r2SaveStack5mBAnim);
+% %7:8 78
+ transRegionR(whichMouse,6)= (abs(circ_r(F2SdiffmSaveStack78(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack78(startIndex:endIndex-0)))-r2SaveStack6mBAnim);
+% %5:7 57
+ transRegionR(whichMouse,7)= (abs(circ_r(F2SdiffmSaveStack57(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack57(startIndex:endIndex-0)))-r2SaveStack7mBAnim);
+% %6:8 68
+ transRegionR(whichMouse,8)= (abs(circ_r(F2SdiffmSaveStack68(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack68(startIndex:endIndex-0)))-r2SaveStack8mBAnim);
+% %9:10 910
+ transRegionR(whichMouse,9)= (abs(circ_r(F2SdiffmSaveStack910(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack910(startIndex:endIndex-0)))-r2SaveStack9mBAnim);
+% %11:12 1112
+ transRegionR(whichMouse,10)= (abs(circ_r(F2SdiffmSaveStack1112(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack1112(startIndex:endIndex-0)))-r2SaveStack10mBAnim);
+% %9:11 911
+ transRegionR(whichMouse,11)= (abs(circ_r(F2SdiffmSaveStack911(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack911(startIndex:endIndex-0)))-r2SaveStack11mBAnim);
+% %10:12 1012
+ transRegionR(whichMouse,12)= (abs(circ_r(F2SdiffmSaveStack1012(startIndex:endIndex-0))-circ_r(F2SdiffdSaveStack1012(startIndex:endIndex-0)))-r2SaveStack12mBAnim);
+
+end
+%% Compute amplitude score of model vs data
+%compute pariwise corrcoeff between mice
+for i=1:5
+    for j=i:5
+        startIndex=i*timeLength*5-timeLength*5+1;
+        endIndex=i*timeLength*5-timeLength*5+timeLength*1;
+        startIndex2=j*timeLength*5-timeLength*5+1;
+        endIndex2=j*timeLength*5-timeLength*5+timeLength*1;
+        correlationMatrix1(i, j) = (corr(envSaveStack1d(startIndex:endIndex),envSaveStack1d(startIndex2:endIndex2)));
+        correlationMatrix2(i, j) = (corr(envSaveStack2d(startIndex:endIndex),envSaveStack2d(startIndex2:endIndex2)));
+        correlationMatrix3(i, j) = (corr(envSaveStack3d(startIndex:endIndex),envSaveStack3d(startIndex2:endIndex2)));
+        correlationMatrix4(i, j) = (corr(envSaveStack4d(startIndex:endIndex),envSaveStack4d(startIndex2:endIndex2)));
+        correlationMatrix5(i, j) = (corr(envSaveStack5d(startIndex:endIndex),envSaveStack5d(startIndex2:endIndex2)));
+        correlationMatrix6(i, j) = (corr(envSaveStack6d(startIndex:endIndex),envSaveStack6d(startIndex2:endIndex2)));
+        correlationMatrix7(i, j) = (corr(envSaveStack7d(startIndex:endIndex),envSaveStack7d(startIndex2:endIndex2)));
+        correlationMatrix8(i, j) = (corr(envSaveStack8d(startIndex:endIndex),envSaveStack8d(startIndex2:endIndex2)));
+        correlationMatrix9(i, j) = (corr(envSaveStack9d(startIndex:endIndex),envSaveStack9d(startIndex2:endIndex2)));
+        correlationMatrix10(i, j) = (corr(envSaveStack10d(startIndex:endIndex),envSaveStack10d(startIndex2:endIndex2)));
+        correlationMatrix11(i, j) = (corr(envSaveStack11d(startIndex:endIndex),envSaveStack11d(startIndex2:endIndex2)));
+        correlationMatrix12(i, j) = (corr(envSaveStack12d(startIndex:endIndex),envSaveStack12d(startIndex2:endIndex2)));
+           
+    end
+end
+
+upperTriangular = triu(correlationMatrix1, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+envSaveStack1mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(correlationMatrix2, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+envSaveStack2mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(correlationMatrix3, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+envSaveStack3mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(correlationMatrix4, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+envSaveStack4mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(correlationMatrix5, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+envSaveStack5mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(correlationMatrix6, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+envSaveStack6mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(correlationMatrix7, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+envSaveStack7mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(correlationMatrix8, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+envSaveStack8mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(correlationMatrix9, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+envSaveStack9mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(correlationMatrix10, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+envSaveStack10mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(correlationMatrix11, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+envSaveStack11mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(correlationMatrix12, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+envSaveStack12mBAnim=mean(nonZeroElements);
+
+
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+upperTriangular = triu(ampDiffData1, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+ampDiffSaveStack1mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(ampDiffData2, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+ampDiffStack2mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(ampDiffData3, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+ampDiffStack3mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(ampDiffData4, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+ampDiffStack4mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(ampDiffData5, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+ampDiffStack5mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(ampDiffData6, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+ampDiffStack6mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(ampDiffData7, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+ampDiffStack7mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(ampDiffData8, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+ampDiffStack8mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(ampDiffData9, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+ampDiffStack9mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(ampDiffData10, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+ampDiffStack10mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(ampDiffData11, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+ampDiffStack11mBAnim=mean(nonZeroElements);
+
+upperTriangular = triu(ampDiffData12, 1);
+nonZeroElements = upperTriangular(upperTriangular ~= 0);
+ampDiffStack12mBAnim=mean(nonZeroElements);
+
+
+for whichMouse=1:5
+startIndex=whichMouse*timeLength*5-timeLength*5+1;
+endIndex=whichMouse*timeLength*5-timeLength*5+timeLength*1;
+
+ampScore(whichMouse,1)=1-(corr(envSaveStack1m(startIndex:endIndex-0),envSaveStack1d(startIndex:endIndex-0)));%-envSaveStack1mBAnim;
+ampScore(whichMouse,2)=1-(corr(envSaveStack2m(startIndex:endIndex-0),envSaveStack2d(startIndex:endIndex-0)));%-envSaveStack2mBAnim;
+ampScore(whichMouse,3)=1-(corr(envSaveStack3m(startIndex:endIndex-0),envSaveStack3d(startIndex:endIndex-0)));%-envSaveStack3mBAnim;
+ampScore(whichMouse,4)=1-(corr(envSaveStack4m(startIndex:endIndex-0),envSaveStack4d(startIndex:endIndex-0)));%-envSaveStack4mBAnim;
+ampScore(whichMouse,5)=1-(corr(envSaveStack5m(startIndex:endIndex-0),envSaveStack5d(startIndex:endIndex-0)));%-envSaveStack5mBAnim;
+ampScore(whichMouse,6)=1-(corr(envSaveStack6m(startIndex:endIndex-0),envSaveStack6d(startIndex:endIndex-0)));%-envSaveStack6mBAnim;
+ampScore(whichMouse,7)=1-(corr(envSaveStack7m(startIndex:endIndex-0),envSaveStack7d(startIndex:endIndex-0)));%-envSaveStack7mBAnim;
+ampScore(whichMouse,8)=1-(corr(envSaveStack8m(startIndex:endIndex-0),envSaveStack8d(startIndex:endIndex-0)));%-envSaveStack8mBAnim;
+ampScore(whichMouse,9)=1-(corr(envSaveStack9m(startIndex:endIndex-0),envSaveStack9d(startIndex:endIndex-0)));%-envSaveStack9mBAnim;
+ampScore(whichMouse,10)=1-(corr(envSaveStack10m(startIndex:endIndex-0),envSaveStack10d(startIndex:endIndex-0)));%-envSaveStack10mBAnim;
+ampScore(whichMouse,11)=1-(corr(envSaveStack11m(startIndex:endIndex-0),envSaveStack11d(startIndex:endIndex-0)));%-envSaveStack11mBAnim;
+ampScore(whichMouse,12)=1-(corr(envSaveStack12m(startIndex:endIndex-0),envSaveStack12d(startIndex:endIndex-0)));%-envSaveStack12mBAnim;
+
+end

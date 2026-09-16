@@ -1,0 +1,112 @@
+
+%% Library 1 (Autonomous Functions)
+% script that performs an expansion and sparsification of the Library 1 addition
+% matrix. 
+
+% Column 3 of resultsCellOutput is the model scores compuated at the end of
+% runBoth script. 1,1 is the mean error and 1,2 is the sum of errors. 3:7
+% are the individual scores of amp and phase. Row 2 is stdev
+
+% Columns 4 and 5 of resultsCellOutput contain the real and imaginary addition matrices
+
+% Column 6 of resultsCellOutput contains a matrix that will be named prodMatrixTracker that
+% contains the number of products to be added in row 1, and the range in
+% the Xi matrix where that product exists.
+
+% Column 8 and 9 of resultsCellOutput are the XiPrimeReal and XiPrimeImag
+% matrices before addition. 
+
+% Column 10 and 11 of resultsCellOutput are the computed XiConstrainedReal
+% and XiConstrainedImag after culling the addtion. 
+
+% Column 12 and 13 of resultsCellOutput are Xi matrices with coefficients
+% from regression used by simulateSeizures
+
+% Column 14 and 15 of resultsCellOutput are the outputs of the real (14) and imaginary (15)
+% regression step performed by the function sparsifyDynamics
+
+
+%%
+%define which cell array row here:
+whichPreviousRow=[]; %This is the row of the model the current model is being compared to
+whichResultsRowAddition=2; %This is the row of the addition with results written relative to this
+whichResultsRow=whichResultsRowAddition;
+
+%Define XiPrime, XiAddition, XiPrimeUXiAddtion
+    %Addition matrix pre-constructed
+    XiFullAdditionReal=resultsCellOutput{whichResultsRow,4};
+    XiFullAdditionImag=resultsCellOutput{whichResultsRow,5};
+    XiPrimeReal=XiFullAdditionReal*0; %there is no XiPrime yet
+    XiPrimeImag=XiFullAdditionImag*0; %there is no XiPrime yet
+    XiPrimeUAdditionReal=XiFullAdditionReal+XiPrimeReal;
+    XiPrimeUAdditionImag=XiFullAdditionImag+XiPrimeImag;
+    
+    %Run the model with the XiPrimeUAddtion. This is the full addition matrix
+    XiConstrainedReal=XiPrimeUAdditionReal;
+    XiConstrainedImag=XiPrimeUAdditionImag;
+    runBoth; 
+    modelScoreOutputPrime=modelScoreOutput; %Define current best model constraint
+    XiPrimeBestReal=XiConstrainedReal;
+    XiPrimeBestImag=XiConstrainedImag;
+    rowOfCurrentBestModel=whichResultsRow;
+    storeResultsCell;
+    
+%%
+%Cull Addition: steps 
+    %Define product order ranges for culling
+    %prodMatrixTracker row 1:number of function blocks (12 rows=function block)..
+    %row 2 is the start of that function block
+    %row 3 is the end of that function block
+    
+    %cull product order
+    whichResultsRow=whichResultsRowAddition+1;
+    prodMatrixTracker=resultsCellOutput{whichResultsRow,6};
+    
+    %define the Matrices comparing to: full addition
+    XiFullAdditionReal=resultsCellOutput{whichResultsRowAddition,4};
+    XiFullAdditionImag=resultsCellOutput{whichResultsRowAddition,5};
+    XiPrimeReal=resultsCellOutput{whichResultsRowAddition,10}*0; %constraints from previous steps
+    XiPrimeImag=resultsCellOutput{whichResultsRowAddition,11}*0; %constraints from previous steps
+    modelScoreOutputPrime=resultsCellOutput{whichResultsRowAddition,3};
+    %
+    cullProductOrder; %script that loops through prodMatrixTracker and culls functions
+    %
+    XiConstrainedReal=XiSubAddKeepReal+XiPrimeReal;
+    XiConstrainedImag=XiSubAddKeepImag+XiPrimeImag;
+    runBoth; %constrain Xi, sparsify, and run the model
+    modelScoreOutPutPrime=modelScoreOutput; %Define current best model constraint
+    storeResultsCell; %writes the results to the appropriate row of resultsCellOutput
+    %%
+    %cull band its in
+    whichResultsRow=whichResultsRowAddition+2; 
+    XiProductsTemp_allCutsReal=resultsCellOutput{whichResultsRow-1,10}-XiPrimeReal;
+    XiProductsTemp_allCutsImag=resultsCellOutput{whichResultsRow-1,11}-XiPrimeImag; 
+    includeBandOrigin=zeros(3,4);
+    includeBandOrigin(1,:)=includeOrder; %a result from the above cull product order
+    %
+    cullBandItsIn; %script that loops through remaining parts of addition from previous step
+    %
+    XiConstrainedReal=XiProductsTemp_allCutsReal_CullBand+XiPrimeReal;
+    XiConstrainedImag=XiProductsTemp_allCutsImag_CullBand+XiPrimeImag;
+    runBoth
+    storeResultsCell; %writes the results to the appropriate row of resultsCellOutput
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
